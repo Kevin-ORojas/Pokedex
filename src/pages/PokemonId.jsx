@@ -29,6 +29,28 @@ const PokemonId = () => {
     fairy: "bg-gradient-to-b from-green-200 to-sky-500",
   };
 
+  const bordersByType = {
+    grass: "border-green-500",
+    fire: "border-red-500",
+    water: "border-sky-500",
+    bug: "border-violet-500",
+    normal: "border-pink-500",
+    fighting: "border-violet-500",
+    poison: "border-green-500",
+    flying: "border-sky-400",
+    ground:"border-yellow-400",
+    rock:"border-violet-400",
+    ghost:"border-orange-400",
+    electric:"border-red-400",
+    steel:"border-yellow-400",
+    psychic:"border-violet-400",
+    ice:"border-blue-400",
+    dragon:"border-sky-400",
+    dark:"border-green-400",
+    fairy:"border-red-400"
+  };
+  
+
   useEffect(() => {
     const URL = `https://pokeapi.co/api/v2/pokemon/${id}/`;
 
@@ -49,7 +71,7 @@ const PokemonId = () => {
 
       <section className=" text-black px-2 py-14 ">
 
-        <article className="max-w-[750px] mx-auto shadow-xl p-1">
+        <article className={`max-w-[750px] mx-auto shadow-xl border-8  p-1 ${bordersByType[pokemon?.types[0].type.name]}`}>
           {/**Seccion Superior */}
 
           <section className={` relative h-[150px]  ${backgroundByType[pokemon?.types[0].type.name]}`}>
@@ -69,7 +91,7 @@ const PokemonId = () => {
 
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
               <hr />
-              <h2 className="capitalize font-bold">{pokemon?.name}</h2>
+              <h2 className="capitalize font-bold mt-3">{pokemon?.name}</h2>
               <hr />
             </div>
 
@@ -94,14 +116,8 @@ const PokemonId = () => {
                 <section className="grid grid-cols-2 gap-4 mt-4 ">
                   {
                   pokemon?.types.map((type) => (
-                    <article
-                      className={` p-1 px-8 border-[1px] border-gray-300 capitalize rounded-md ${
-                        backgroundByType[pokemon?.types[0].type.name]
-                      }`}
-                      key={type.type.name}
-                    >
-                      {type.type.name}
-                    </article>
+                    <article className={` p-1 px-8 border-[1px] border-gray-300 capitalize rounded-md ${
+                        backgroundByType[pokemon?.types[0].type.name]}`}key={type.type.name}>{type.type.name}</article>
                   ))
                   }
                 </section>

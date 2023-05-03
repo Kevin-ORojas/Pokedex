@@ -6,7 +6,7 @@ import PokemonId from "./pages/PokemonId";
 
 function App() {
   return (
-    <section className="bg-black/40 min-h-screen">
+    <section className="bg-sky-200 min-h-screen">
       
         
       <Routes>
