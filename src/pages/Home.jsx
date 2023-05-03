@@ -20,13 +20,13 @@ const Home = () => {
       <section>
         <article className="grid justify-center">
           <div >
-            <img  src="/images/pokedex.svg" alt="" />
+            <img className="hover:animate-pulse du" src="/images/pokedex.svg" alt="" />
           </div>
           <h2 className="font-bold text-center text-red-500 ">Hello Trainer¡</h2>
           <p className="text-black font-bold text-center ">Give me your name to start!</p>
-          <form onSubmit={handlSubmit}>
-            <input className="" id="nameTrainer" type="text" placeholder="Tu nombre ..." />
-            <button className="left-4">Start!</button>
+          <form className="flex justify-center h-[30px]" onSubmit={handlSubmit}>
+            <input className="w-[60%] sm:w-[30%] bg-white/80 " id="nameTrainer" type="text" placeholder="Tu nombre ..." />
+            <button className="bg-red-500 w-16 font-bold">Start!</button>
           </form>
         </article>
       </section>
