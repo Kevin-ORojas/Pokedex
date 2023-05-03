@@ -18,15 +18,15 @@ const Home = () => {
   return (
     <section className="min-h-screen grid grid-rows-[1fr_auto]">
       <section>
-        <article>
+        <article className="grid justify-center">
           <div >
             <img  src="/images/pokedex.svg" alt="" />
           </div>
-          <h2>Hello Trainer¡</h2>
-          <p>Give me your name to start!</p>
+          <h2 className="font-bold text-center text-red-500 ">Hello Trainer¡</h2>
+          <p className="text-black font-bold text-center ">Give me your name to start!</p>
           <form onSubmit={handlSubmit}>
-            <input id="nameTrainer" type="text" placeholder="Tu nombre ..." />
-            <button>Start!</button>
+            <input className="" id="nameTrainer" type="text" placeholder="Tu nombre ..." />
+            <button className="left-4">Start!</button>
           </form>
         </article>
       </section>
