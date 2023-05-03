@@ -10,7 +10,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           href="https://github.com/NozoDev"
         >
-          <i className="bx bxl-github text-white hover:bg-red-700 rounded-full "></i>
+          <i className="bx bxl-github text-black hover:bg-red-700 rounded-full "></i>
         </a>
         <a
           className="text-4xl"
@@ -18,7 +18,7 @@ const Footer = () => {
           rel="noopener noreferrer" //evita malwares maliciosos al abrir ventanas
           href="https://www.linkedin.com/in/kevin-oswaldo-rojas-velandia-73a343241/"
         >
-          <i className="bx bxl-linkedin text-white hover:bg-red-700 rounded-full "></i>
+          <i className="bx bxl-linkedin text-black hover:bg-red-700 rounded-full "></i>
         </a>
         <a
           className="text-4xl"
@@ -26,7 +26,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           href="https://www.instagram.com/kevinrojasxd/"
         >
-          <i className="bx bxl-instagram text-white hover:bg-red-700 rounded-full"></i>
+          <i className="bx bxl-instagram text-black hover:bg-red-700 rounded-full"></i>
         </a>
       </footer>
 

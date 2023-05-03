@@ -121,28 +121,28 @@ const Pokedex = () => {
   }, [pokemonName, currentType])
 
   return (
-    <section className="">
+    <section className="bg-slate-200  min-h-screen">
       {/**Seccion de filtros y saludos */}
       <Header />
-      <section className="py-6 px-2  text-3xl font-bold flex flex-col mx-auto justify-between items-center">
+      <section className="py-6  px-2 text-[12px] sm:text-2xl md:text-4xl font-bold flex flex-col mx-auto justify-between items-center">
         <h3 className="text-red-500 font-semibold">
           Welcome {nameTrainer}
-          <span className="text-black">
+          <span className="text-black  sm:text-2xl md:text-3xl ">
             , here you can find your favorite pokemon
           </span>
         </h3>
 
-        <form className="flex p-4  gap-2" onSubmit={handlePlusOne}>
+        <form className="flex drop-shadow-4xl p-2 mt-4 md:mt-4 " onSubmit={handlePlusOne}>
           <div className="flex text-sm  h-10">
-            <input className="text-black sm:w-72 xl:w-80 rounded-md   "
+            <input className="text-black border-4 placeholder-red-700 bg-transparent border-red-500 sm:w-72 xl:w-80 rounded-md   "
               id="pokemonName"
               type="text"
               placeholder="Search your pokemon"
             />
-            <button className="inline-block h-10 w-14 sm:h-10 sm:w-16 rounded-md bg-red-500">Search</button>
+            <button className="inline-block h-10 w-12  sm:h-10 sm:w-16 rounded-md bg-red-500">Search</button>
           </div>
 
-          <select className="w-12 text-sm rounded-md" onChange={(e) => setCurrentType(e.target.value)}>
+          <select className="w-10 text-sm bg-red-500 rounded-md" onChange={(e) => setCurrentType(e.target.value)}>
             <option value="all">All</option>
             {types.map((type) => (
               <option className="capitalize" value={type} key={type}>

@@ -9,7 +9,7 @@ const PokemonId = () => {
   const { id } = useParams();
 
   const backgroundByType = {
-    grass: "bg-gradient-to-b from-sky-500 to-green-500",
+    grass: "bg-gradient-to-b from-green-800 to-sky-800/80",
     fire: "bg-gradient-to-b from-red-500 to-blue-500",
     water: "bg-gradient-to-b from-blue-600 to-sky-500",
     bug: "bg-gradient-to-b from-violet-600 to-sky-500",
@@ -52,7 +52,7 @@ const PokemonId = () => {
 
   const SkillColorByType = {
     grass: "text-green-700",
-    fire: "text-red-500",
+    fire: "text-red-700",
     water: "text-sky-500",
     bug: "text-violet-500",
     normal: "text-pink-500",
@@ -93,10 +93,10 @@ const PokemonId = () => {
 
       <section className=" text-black px-2 py-14 ">
 
-        <article className={`max-w-[750px] mx-auto shadow-xl border-8 rounded-md  p-1 ${bordersByType[pokemon?.types[0].type.name]}`}>
+        <article className={`max-w-[750px] mx-auto drop-shadow-4xl border-8 rounded-md  p-1 ${bordersByType[pokemon?.types[0].type.name]}`}>
           {/**Seccion Superior */}
 
-          <section className={` relative h-[150px]  ${backgroundByType[pokemon?.types[0].type.name]}`}>
+          <section className={` relative h-[150px]   ${backgroundByType[pokemon?.types[0].type.name]}`}>
 
             <div className="w-[200px] mx-auto absolute left-1/2 -translate-x-1/2 -top-8">
               <img src={pokemon?.sprites.other.dream_world.front_default}alt=""/>
