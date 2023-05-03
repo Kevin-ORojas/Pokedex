@@ -124,6 +124,14 @@ const Pokedex = () => {
         </form>
       </section>
 
+          {/* Paginacion */}
+          <ul className="flex gap-3 justify-center py-4">
+            {
+              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className="p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer" key={numberPage}>{numberPage}</li>)
+            }
+          </ul>
+
+
       {/** seccion lista de pokemon */}
       <section className="px-6 md:px-12 py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center">
         {pokemonInPage.map((pokemon) => (
