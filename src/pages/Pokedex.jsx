@@ -5,12 +5,22 @@ import axios from "axios";
 import PokemonCard from "../components/pokedex/PokemonCard";
 
 const Pokedex = () => {
+  //? Array de pokemons antes de filtrar
   const [pokemons, setpokemons] = useState([]);
+
+  //?string para filtrar los pokemons por nombre
   const [pokemonName, setPokemonName] = useState("");
+
+  //? arreglo de tipos de pokemons posibles
   const [types, setTypes] = useState([]);
+  
+  //? string de tipo de pokemons actual, cambia de acuerdo al select
   const [currentType, setCurrentType] = useState("")
+
+  //? pagina actual
   const [currentPage, setCurrentPage] = useState(1)
 
+  //? estado global donde se almacena el nombre el usuario
   const nameTrainer = useSelector((store) => store.nameTrainer);
 
   const handlePlusOne = (e) => {
@@ -26,6 +36,7 @@ const Pokedex = () => {
     //Cantidad de pokemon por pagina
     const POKEMONS_PER_PAGE = 20
 
+    
     //Pokemons que se van a mostrar en la pagina actual
     const sliceStart = (currentPage - 1 ) * POKEMONS_PER_PAGE
     const sliceEnd = sliceStart + POKEMONS_PER_PAGE
@@ -52,6 +63,20 @@ const Pokedex = () => {
   }
 
    const {lastPage, pagesInBlock, pokemonInPage} = paginationLogic()
+
+   const handleClickPreviusPage = () => {
+    const newCurrentPage = currentPage - 1
+    if(newCurrentPage >= 1){
+      setCurrentPage(newCurrentPage)
+    }
+   }
+
+   const handleClickNextPage = () => {
+    const newCurrentPage = currentPage + 1
+    if(newCurrentPage <= lastPage){
+      setCurrentPage(newCurrentPage)
+    }
+   }
   
   useEffect(() => {
     if(!currentType){
@@ -91,6 +116,10 @@ const Pokedex = () => {
     }
   }, [currentType])
 
+  useEffect (() => {
+    setCurrentPage(1)
+  }, [pokemonName, currentType])
+
   return (
     <section>
       {/**Seccion de filtros y saludos */}
@@ -125,15 +154,26 @@ const Pokedex = () => {
       </section>
 
           {/* Paginacion */}
-          <ul className="flex gap-3 justify-center py-4">
+          <ul className="flex gap-2 justify-center items-center py-4 px-2 flex-wrap ">
+            {/* pagina anterior */}
+            <li onClick={() => setCurrentPage(1)} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{"<<"}</li>
+            {/* Pagina anterior */}
+          <li onClick={handleClickPreviusPage} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{"<"}</li>
+
+          {/* lista de paginas */}
             {
-              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className="p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer" key={numberPage}>{numberPage}</li>)
+              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer ${numberPage === currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
             }
+
+            {/* Pagina siguiente */}
+            <li onClick={handleClickNextPage} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{">"}</li>
+            {/*Ultima pagina */}
+            <li onClick={() => setCurrentPage(lastPage)} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{">>"}</li>
           </ul>
 
 
       {/** seccion lista de pokemon */}
-      <section className="px-6 md:px-12 py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center">
+      <section className="px-6 md:px-12 py-8 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center">
         {pokemonInPage.map((pokemon) => (
           <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />
         ))}
