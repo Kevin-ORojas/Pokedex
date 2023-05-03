@@ -8,69 +8,90 @@ const PokemonId = () => {
 
   const { id } = useParams();
 
-  const backgroundByType = {
-    grass: "bg-gradient-to-b from-green-800 to-sky-800/80",
-    fire: "bg-gradient-to-b from-red-500 to-blue-500",
-    water: "bg-gradient-to-b from-blue-600 to-sky-500",
-    bug: "bg-gradient-to-b from-violet-600 to-sky-500",
-    normal: "bg-gradient-to-b from-pink-600 to-sky-500",
-    fighting: "bg-gradient-to-b from-pink-600 to-sky-500",
-    poison: "bg-gradient-to-b from-green-200 to-sky-500",
-    flying: "bg-gradient-to-b from-pink-600 to-sky-500",
-    ground: "bg-gradient-to-b from-red-200 to--500",
-    rock: "bg-gradient-to-b from-blue-200 to-sky-500",
-    ghost: "bg-gradient-to-b from-orange-200 to-sky-500",
-    electric: "bg-gradient-to-b from-yellow-200 to-sky-500",
-    steel: "bg-gradient-to-b from-black/50 to-sky-500",
-    psychic: "bg-gradient-to-b from-green-200 to-sky-500",
-    ice: "bg-gradient-to-b from-green-200 to-sky-500",
-    dragon: "bg-gradient-to-b from-green-200 to-sky-500",
-    dark: "bg-gradient-to-b from-green-200 to-sky-500",
-    fairy: "bg-gradient-to-b from-green-200 to-sky-500",
-  };
-
   const bordersByType = {
-    grass: "border-green-500",
-    fire: "border-red-500",
-    water: "border-sky-500",
-    bug: "border-violet-500",
-    normal: "border-pink-500",
-    fighting: "border-violet-500",
-    poison: "border-green-500",
-    flying: "border-sky-400",
-    ground:"border-yellow-400",
-    rock:"border-violet-400",
-    ghost:"border-orange-400",
-    electric:"border-red-400",
-    steel:"border-yellow-400",
-    psychic:"border-violet-400",
-    ice:"border-blue-400",
-    dragon:"border-sky-400",
-    dark:"border-green-400",
-    fairy:"border-red-400"
+    grass: "border-green-800/70",
+    fire: "border-red-800/70",
+    water: "border-blue-800/70",
+    bug: "border-green-800/70",
+    normal: "border-neutral-800/70",
+    fighting: "border-cyan-800/70",
+    poison: "border-green-800/70",
+    flying: "border-sky-800/70",
+    ground:"border-red-800/70",
+    rock:"border-violet-800/70",
+    ghost:"border-neutral-800/70",
+    electric:"border-red-800/70",
+    steel:"border-teal-800/70",
+    psychic:"border-sky-800/70",
+    ice:"border-blue-800/70",
+    dragon:"border-sky-800/70",
+    dark:"border-green-800/70",
+    fairy:"border-violet-800/70"
   };
-
-  const SkillColorByType = {
-    grass: "text-green-700",
-    fire: "text-red-700",
-    water: "text-sky-500",
-    bug: "text-violet-500",
-    normal: "text-pink-500",
-    fighting: "text-violet-500",
-    poison: "text-green-500",
-    flying: "text-sky-400",
-    ground:"text-yellow-400",
-    rock:"text-violet-400",
-    ghost:"text-orange-400",
-    electric:"text-red-400",
-    steel:"text-yellow-400",
-    psychic:"text-violet-400",
+  
+  const backgroundByType = {
+    grass: "bg-gradient-to-b from-green-800 to-lime-500/10",
+    fire: "bg-gradient-to-b from-red-800 to-yellow-500/20",
+    water: "bg-gradient-to-b from-blue-800 to-sky-500/10",
+    bug: "bg-gradient-to-b from-green-800 to-yellow-500/10",
+    normal: "bg-gradient-to-b from-stone-800 to-neutral-500/10",
+    fighting: "bg-gradient-to-b from-cyan-800 to-sky-500/10",
+    poison: "bg-gradient-to-b from-green-800 to-lime-500/10",
+    flying: "bg-gradient-to-b from-pink-800 to-sky-500/10",
+    ground:"bg-gradient-to-b from-red-800 to-stone-500/10",
+    rock:"bg-gradient-to-b from-stone-800 to-zinc-500/10",
+    ghost:"bg-gradient-to-b from-neutral-800 to-stone-500/10",
+    electric:"bg-gradient-to-b from-yellow-400 to-orange-500/10",
+    steel:"bg-gradient-to-b from-teal-800 to-emerald-500/10",
+    psychic:"bg-gradient-to-b from-sky-800 to-green-500/10",
+    ice:"bg-gradient-to-b from-blue-800 to-indigo-500/10",
+    dragon:"bg-gradient-to-b from-sky-900 to-sky-500/10",
+    dark:"bg-gradient-to-b from-stone-900 to-neutral-500/10",
+    fairy:"bg-gradient-to-b from-violet-800 to-sky-500/10"
+    };
+  
+  const nameColorByType = {
+    grass: "text-green-800",
+    fire: "text-red-800",
+    water: "text-blue-800",
+    bug: "text-green-800",
+    normal: "text-stone-800",
+    fighting: "text-violet-800",
+    poison: "text-green-800",
+    flying: "text-cyan-800",
+    ground:"text-yellow-800",
+    rock:"text-violet-800",
+    ghost:"text-orange-800",
+    electric:"text-red-800",
+    steel:"text-yellow-800",
+    psychic:"text-violet-800",
     ice:"text-blue-800",
-    dragon:"text-sky-400",
-    dark:"text-green-400",
-    fairy:"text-red-400"
+    dragon:"text-indigo-800",
+    dark:"text-green-800",
+    fairy:"text-red-800"
+    
   }
   
+  const SkillColorByType = {
+    grass: "text-green-700",
+    fire: "text-red-800",
+    water: "text-blue-800",
+    bug: "text-green-800",
+    normal: "text-stone-800",
+    fighting: "text-violet-800",
+    poison: "text-green-800",
+    flying: "text-cyan-800",
+    ground:"text-yellow-800",
+    rock:"text-violet-800",
+    ghost:"text-orange-800",
+    electric:"text-red-800",
+    steel:"text-yellow-800",
+    psychic:"text-violet-800",
+    ice:"text-blue-800",
+    dragon:"text-sky-800",
+    dark:"text-green-800",
+    fairy:"text-red-800"
+  }
   
 
   useEffect(() => {
@@ -93,12 +114,12 @@ const PokemonId = () => {
 
       <section className=" text-black px-2 py-14 ">
 
-        <article className={`max-w-[750px] mx-auto drop-shadow-4xl border-8 rounded-md  p-1 ${bordersByType[pokemon?.types[0].type.name]}`}>
+        <article className={`max-w-[750px] rounded-[16px] border-[10px] mx-auto drop-shadow-4xl ${bordersByType[pokemon?.types[0].type.name]}`}>
           {/**Seccion Superior */}
 
-          <section className={` relative h-[150px]   ${backgroundByType[pokemon?.types[0].type.name]}`}>
+          <section className={` relative h-[150px]  rounded-t-[5px] drop-shadow-4xl rounded-xl ${backgroundByType[pokemon?.types[0].type.name]}`}>
 
-            <div className="w-[200px] mx-auto absolute left-1/2 -translate-x-1/2 -top-8">
+            <div className="w-[180px] drop-shadow-3xl animate-pulse -mt-2 mx-auto absolute left-1/2 -translate-x-1/2 ">
               <img src={pokemon?.sprites.other.dream_world.front_default}alt=""/>
             </div>
 
