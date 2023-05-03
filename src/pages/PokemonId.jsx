@@ -73,7 +73,7 @@ const PokemonId = () => {
   }
   
   const SkillColorByType = {
-    grass: "text-green-700",
+    grass: "text-green-600",
     fire: "text-red-800",
     water: "text-blue-800",
     bug: "text-green-800",
@@ -90,7 +90,7 @@ const PokemonId = () => {
     ice:"text-blue-800",
     dragon:"text-sky-800",
     dark:"text-green-800",
-    fairy:"text-red-800"
+    fairy:"text-red-600"
   }
   
 
@@ -156,7 +156,7 @@ const PokemonId = () => {
               <section className=" text-center">
                 <h3 className="font-bold">Types</h3>
 
-                <section className="grid grid-cols-2 gap-4 mt-4 ">
+                <section className="grid grid-cols-2 gap-4 px-2 mt-4 ">
                   {
                   pokemon?.types.map((type) => (
                     <article className={` p-1 font-bold px-8 border-[1px] border-gray-300 capitalize rounded-md ${
@@ -170,7 +170,7 @@ const PokemonId = () => {
               <section className="text-center">
                 <h3 className="font-bold">ability</h3>
 
-                <section className="grid grid-cols-2 gap-4 mt-4">
+                <section className="grid grid-cols-2 gap-4 px-2 mt-4">
                   {
                   pokemon?.abilities.map((ability) => (
                     <article
@@ -185,7 +185,7 @@ const PokemonId = () => {
 
           {/* seccion de Stats*/}
           <section>
-            <h3 className={`font-bold py-4 text-center  text-xl ${SkillColorByType[pokemon?.types[0].type.name]}`}>Stats</h3>
+            <h3 className={`font-bold py-2 text-center text-xl ${SkillColorByType[pokemon?.types[0].type.name]}`}>Stats</h3>
 
             <section>
               {pokemon?.stats.map((stat) => (

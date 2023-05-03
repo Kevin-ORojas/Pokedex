@@ -45,7 +45,7 @@ const backgroundByType = {
   };
 
 const nameColorByType = {
-  grass: "text-green-800",
+  grass: "text-green-700",
   fire: "text-red-800",
   water: "text-blue-800",
   bug: "text-green-800",

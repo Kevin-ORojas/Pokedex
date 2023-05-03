@@ -134,7 +134,7 @@ const Pokedex = () => {
 
         <form className="flex drop-shadow-4xl p-2 mt-4 md:mt-4 " onSubmit={handlePlusOne}>
           <div className="flex text-sm  h-10">
-            <input className="text-black border-4 placeholder-red-700 bg-transparent border-red-500 sm:w-72 xl:w-80 rounded-md   "
+            <input className="text-black border-4 placeholder-black bg-transparent border-red-500 sm:w-72 xl:w-80 rounded-md   "
               id="pokemonName"
               type="text"
               placeholder="Search your pokemon"
@@ -178,6 +178,53 @@ const Pokedex = () => {
           <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />
         ))}
       </section>
+      <ul className="flex gap-2 justify-center items-center py-4 px-2 flex-wrap ">
+            {/* pagina anterior */}
+            <li onClick={() => setCurrentPage(1)} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{"<<"}</li>
+            {/* Pagina anterior */}
+          <li onClick={handleClickPreviusPage} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{"<"}</li>
+
+          {/* lista de paginas */}
+            {
+              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer ${numberPage === currentPage && "bg-red-400"}`} key={numberPage}>{numberPage}</li>)
+            }
+
+            {/* Pagina siguiente */}
+            <li onClick={handleClickNextPage} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{">"}</li>
+            {/*Ultima pagina */}
+            <li onClick={() => setCurrentPage(lastPage)} className="p-1 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer">{">>"}</li>
+          </ul>
+
+          <footer className="flex gap-2 p-2 justify-center">
+        <a
+          className="text-4xl"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/NozoDev"
+        >
+          <i className="bx bxl-github text-black hover:bg-red-700 rounded-full "></i>
+        </a>
+        <a
+          className="text-4xl"
+          target="_blank" // permite abrir en nueva pestaña
+          rel="noopener noreferrer" //evita malwares maliciosos al abrir ventanas
+          href="https://www.linkedin.com/in/kevin-oswaldo-rojas-velandia-73a343241/"
+        >
+          <i className="bx bxl-linkedin text-black hover:bg-red-700 rounded-full "></i>
+        </a>
+        <a
+          className="text-4xl"
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://www.instagram.com/kevinrojasxd/"
+        >
+          <i className="bx bxl-instagram text-black hover:bg-red-700 rounded-full"></i>
+        </a>
+      </footer>
+
+      <span className="text-black text-sm font-semibold  flex items-center justify-center">
+        © Todos los derechos reservados 2023{" "}
+      </span>
     </section>
   );
 };
