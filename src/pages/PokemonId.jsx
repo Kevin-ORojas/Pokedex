@@ -8,6 +8,27 @@ const PokemonId = () => {
 
   const { id } = useParams();
 
+  const backgroundByType = {
+    grass: "bg-gradient-to-b from-sky-500 to-green-500",
+    fire: "bg-gradient-to-b from-red-500 to-blue-500",
+    water: "bg-gradient-to-b from-blue-600 to-sky-500",
+    bug: "bg-gradient-to-b from-violet-600 to-sky-500",
+    normal: "bg-gradient-to-b from-pink-600 to-sky-500",
+    fighting: "bg-gradient-to-b from-pink-600 to-sky-500",
+    poison: "bg-gradient-to-b from-green-200 to-sky-500",
+    flying: "bg-gradient-to-b from-pink-600 to-sky-500",
+    ground: "bg-gradient-to-b from-red-200 to--500",
+    rock: "bg-gradient-to-b from-blue-200 to-sky-500",
+    ghost: "bg-gradient-to-b from-orange-200 to-sky-500",
+    electric: "bg-gradient-to-b from-yellow-200 to-sky-500",
+    steel: "bg-gradient-to-b from-black/50 to-sky-500",
+    psychic: "bg-gradient-to-b from-green-200 to-sky-500",
+    ice: "bg-gradient-to-b from-green-200 to-sky-500",
+    dragon: "bg-gradient-to-b from-green-200 to-sky-500",
+    dark: "bg-gradient-to-b from-green-200 to-sky-500",
+    fairy: "bg-gradient-to-b from-green-200 to-sky-500",
+  };
+
   useEffect(() => {
     const URL = `https://pokeapi.co/api/v2/pokemon/${id}/`;
 
@@ -26,23 +47,24 @@ const PokemonId = () => {
     <section>
       <Header />
 
-      <section className=" text-black px-2 py-5">
+      <section className=" text-black px-2 py-14 ">
 
-        <article>
+        <article className="max-w-[750px] mx-auto shadow-xl p-1">
           {/**Seccion Superior */}
-         
-          <section>
-            <div>
-            <img src={pokemon?.sprites.other.dream_world.front_default} alt="" />
+
+          <section className={` relative h-[150px]  ${backgroundByType[pokemon?.types[0].type.name]}`}>
+
+            <div className="w-[200px] mx-auto absolute left-1/2 -translate-x-1/2 -top-8">
+              <img src={pokemon?.sprites.other.dream_world.front_default}alt=""/>
             </div>
+
           </section>
 
           {/* Informacion General */}
 
-          <section>
-
+          <section className="">
             <div>
-              <h3>#{pokemon?.id}</h3>
+              <h3 className="text-center mt-6 font-bold text-green-700">#{pokemon?.id}</h3>
             </div>
 
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
@@ -51,27 +73,60 @@ const PokemonId = () => {
               <hr />
             </div>
 
-            <div className="flex justify-center gap-6 text-center">
+            <div className="flex justify-center gap-6 text-center mt-2">
               <div>
-                <h5 className="font-bold">Weight</h5>
+                <h5 className="font-bold text-sm">Weight</h5>
                 <span className="font-semibold">{pokemon?.weight}</span>
               </div>
 
               <div>
-                <h5 className="font-bold">height</h5>
+                <h5 className="font-bold text-sm">height</h5>
                 <span className="font-semibold">{pokemon?.height}</span>
               </div>
-
             </div>
 
+            <section className="grid sm:grid-cols-2 gap-4 ">
+              {/* Tipos */}
 
+              <section className=" text-center">
+                <h3 className="font-bold">Types</h3>
 
+                <section className="grid grid-cols-2 gap-4 mt-4 ">
+                  {
+                  pokemon?.types.map((type) => (
+                    <article
+                      className={` p-1 px-8 border-[1px] border-gray-300 capitalize rounded-md ${
+                        backgroundByType[pokemon?.types[0].type.name]
+                      }`}
+                      key={type.type.name}
+                    >
+                      {type.type.name}
+                    </article>
+                  ))
+                  }
+                </section>
+              </section>
+
+              {/* Habilidades */}
+              <section className="text-center">
+                <h3 className="font-bold mt-4">ability</h3>
+
+                <section className="grid grid-cols-2 gap-4">
+                  {
+                  pokemon?.abilities.map((ability) => (
+                    <article
+                      className={` p-1 px-6 border-[1px] border-gray-300 capitalize rounded-md truncate ${
+                        backgroundByType[pokemon?.types[0].type.name]}`}key={ability.ability.name}>{ability.ability.name}</article>
+                  ))
+                  }
+                </section>
+              </section>
+            </section>
           </section>
-
 
           {/* seccion de Stats*/}
           <section>
-            <h3>Stats</h3>
+            <h3 className="font-bold py-4 text-xl">Stats</h3>
 
             <section>
               {pokemon?.stats.map((stat) => (

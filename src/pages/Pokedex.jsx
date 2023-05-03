@@ -9,6 +9,7 @@ const Pokedex = () => {
   const [pokemonName, setPokemonName] = useState("");
   const [types, setTypes] = useState([]);
   const [currentType, setCurrentType] = useState("")
+  const [currentPage, setCurrentPage] = useState(1)
 
   const nameTrainer = useSelector((store) => store.nameTrainer);
 
@@ -21,9 +22,40 @@ const Pokedex = () => {
     pokemon.name.toLowerCase().includes(pokemonName.toLowerCase())
   );
 
+  const paginationLogic = () => {
+    //Cantidad de pokemon por pagina
+    const POKEMONS_PER_PAGE = 20
+
+    //Pokemons que se van a mostrar en la pagina actual
+    const sliceStart = (currentPage - 1 ) * POKEMONS_PER_PAGE
+    const sliceEnd = sliceStart + POKEMONS_PER_PAGE
+    const pokemonInPage = pokemonsByName.slice(sliceStart, sliceEnd)
+
+    //Ultima pagina
+    const lastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
+
+    //Bloque actual
+     const PAGES_PER_BLOCK = 5
+     const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
+    
+    //paginas que se van a mostrar en el bloque actual
+    const pagesInBlock = []
+    const minPage = (actualBlock - 1) * PAGES_PER_BLOCK + 1
+    const maxPage = actualBlock * PAGES_PER_BLOCK
+    for(let i = minPage; i <= maxPage; i++){
+      if(i <= lastPage){
+        pagesInBlock.push(i)
+      }
+    }
+
+    return {pokemonInPage, lastPage, pagesInBlock}
+  }
+
+   const {lastPage, pagesInBlock, pokemonInPage} = paginationLogic()
+  
   useEffect(() => {
     if(!currentType){
-    const URL = "https://pokeapi.co/api/v2/pokemon";
+    const URL = "https://pokeapi.co/api/v2/pokemon?limit=1281";
 
     axios
       .get(URL)
@@ -94,7 +126,7 @@ const Pokedex = () => {
 
       {/** seccion lista de pokemon */}
       <section className="px-6 md:px-12 py-12 grid gap-6 auto-rows-auto grid-cols-[repeat(auto-fill,_minmax(220px,_320px))] justify-center">
-        {pokemonsByName.map((pokemon) => (
+        {pokemonInPage.map((pokemon) => (
           <PokemonCard key={pokemon.url} pokemonUrl={pokemon.url} />
         ))}
       </section>

@@ -45,7 +45,7 @@ const backgroundByType = {
 };
 
 const nameColorByType = {
-  grass: "text-green-500",
+  grass: "text-green-700",
   fire: "text-red-500",
   water: "text-sky-500",
   bug: "text-violet-500",
@@ -67,7 +67,7 @@ const nameColorByType = {
 }
 
 const SkillColorByType = {
-  grass: "text-green-500",
+  grass: "text-green-700",
   fire: "text-red-500",
   water: "text-sky-500",
   bug: "text-violet-500",
@@ -137,7 +137,7 @@ const PokemonCard = ({ pokemonUrl }) => {
         <section className="grid grid-cols-3 gap-2 p-2 ">
           {pokemon?.stats.map((stat) => (
             <div key={stat.stat.url}>
-              <h5 className="text-black font-bold">{stat.stat.name}</h5>
+              <h5 className="text-black font-bold truncate">{stat.stat.name}</h5>
               <span className={`font-semibold ${SkillColorByType[pokemon?.types[0].type.name]}`}>{stat.base_stat}</span>
             </div>
           ))}
