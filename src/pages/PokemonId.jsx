@@ -49,6 +49,28 @@ const PokemonId = () => {
     dark:"border-green-400",
     fairy:"border-red-400"
   };
+
+  const SkillColorByType = {
+    grass: "text-green-700",
+    fire: "text-red-500",
+    water: "text-sky-500",
+    bug: "text-violet-500",
+    normal: "text-pink-500",
+    fighting: "text-violet-500",
+    poison: "text-green-500",
+    flying: "text-sky-400",
+    ground:"text-yellow-400",
+    rock:"text-violet-400",
+    ghost:"text-orange-400",
+    electric:"text-red-400",
+    steel:"text-yellow-400",
+    psychic:"text-violet-400",
+    ice:"text-blue-800",
+    dragon:"text-sky-400",
+    dark:"text-green-400",
+    fairy:"text-red-400"
+  }
+  
   
 
   useEffect(() => {
@@ -66,12 +88,12 @@ const PokemonId = () => {
   };
 
   return (
-    <section>
+    <section className="min-h-screen grid bg-cover bg-no-repeat bg-bottom bg-[url('/images/pokeball3.jpg')] grid-rows-[1fr_auto]">
       <Header />
 
       <section className=" text-black px-2 py-14 ">
 
-        <article className={`max-w-[750px] mx-auto shadow-xl border-8  p-1 ${bordersByType[pokemon?.types[0].type.name]}`}>
+        <article className={`max-w-[750px] mx-auto shadow-xl border-8 rounded-md  p-1 ${bordersByType[pokemon?.types[0].type.name]}`}>
           {/**Seccion Superior */}
 
           <section className={` relative h-[150px]  ${backgroundByType[pokemon?.types[0].type.name]}`}>
@@ -84,9 +106,9 @@ const PokemonId = () => {
 
           {/* Informacion General */}
 
-          <section className="">
+          <section className={`${SkillColorByType[pokemon?.types[0].type.name]}`}>
             <div>
-              <h3 className="text-center mt-6 font-bold text-green-700">#{pokemon?.id}</h3>
+              <h3 className={`text-center mt-6 font-bold ${SkillColorByType}`}>#{pokemon?.id}</h3>
             </div>
 
             <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2">
@@ -116,7 +138,7 @@ const PokemonId = () => {
                 <section className="grid grid-cols-2 gap-4 mt-4 ">
                   {
                   pokemon?.types.map((type) => (
-                    <article className={` p-1 px-8 border-[1px] border-gray-300 capitalize rounded-md ${
+                    <article className={` p-1 font-bold px-8 border-[1px] border-gray-300 capitalize rounded-md ${
                         backgroundByType[pokemon?.types[0].type.name]}`}key={type.type.name}>{type.type.name}</article>
                   ))
                   }
@@ -125,13 +147,13 @@ const PokemonId = () => {
 
               {/* Habilidades */}
               <section className="text-center">
-                <h3 className="font-bold mt-4">ability</h3>
+                <h3 className="font-bold">ability</h3>
 
-                <section className="grid grid-cols-2 gap-4">
+                <section className="grid grid-cols-2 gap-4 mt-4">
                   {
                   pokemon?.abilities.map((ability) => (
                     <article
-                      className={` p-1 px-6 border-[1px] border-gray-300 capitalize rounded-md truncate ${
+                      className={` p-1 px-6 font-bold border-[1px] border-gray-300 capitalize rounded-md truncate ${
                         backgroundByType[pokemon?.types[0].type.name]}`}key={ability.ability.name}>{ability.ability.name}</article>
                   ))
                   }
@@ -142,13 +164,13 @@ const PokemonId = () => {
 
           {/* seccion de Stats*/}
           <section>
-            <h3 className="font-bold py-4 text-xl">Stats</h3>
+            <h3 className={`font-bold py-4 text-center  text-xl ${SkillColorByType[pokemon?.types[0].type.name]}`}>Stats</h3>
 
             <section>
               {pokemon?.stats.map((stat) => (
                 <article key={stat.stat.name}>
                   <section className="flex  justify-between">
-                    <h5 className="capitalize">{stat.stat.name}</h5>
+                    <h5 className="font-bold text-white capitalize">{stat.stat.name}</h5>
 
                     <span>{stat.base_stat}/255</span>
                   </section>

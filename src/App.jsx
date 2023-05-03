@@ -6,7 +6,7 @@ import PokemonId from "./pages/PokemonId";
 
 function App() {
   return (
-    <section className="bg-sky-200 min-h-screen">
+    <section className=" grid bg-cover bg-no-repeat bg-bottom bg-[url('/images/pokeball3.jpg')] grid-rows-[1fr_auto]">
       
         
       <Routes>
