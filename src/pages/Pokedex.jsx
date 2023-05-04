@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import Header from "../components/pokedex/Header";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import PokemonCard from "../components/pokedex/PokemonCard";
+import { paginationLogic } from "../utils/pagination";
 
 const Pokedex = () => {
   //? Array de pokemons antes de filtrar
@@ -32,37 +33,9 @@ const Pokedex = () => {
     pokemon.name.toLowerCase().includes(pokemonName.toLowerCase())
   );
 
-  const paginationLogic = () => {
-    //Cantidad de pokemon por pagina
-    const POKEMONS_PER_PAGE = 20
 
-    
-    //Pokemons que se van a mostrar en la pagina actual
-    const sliceStart = (currentPage - 1 ) * POKEMONS_PER_PAGE
-    const sliceEnd = sliceStart + POKEMONS_PER_PAGE
-    const pokemonInPage = pokemonsByName.slice(sliceStart, sliceEnd)
 
-    //Ultima pagina
-    const lastPage = Math.ceil(pokemonsByName.length / POKEMONS_PER_PAGE) || 1
-
-    //Bloque actual
-     const PAGES_PER_BLOCK = 5
-     const actualBlock = Math.ceil(currentPage / PAGES_PER_BLOCK)
-    
-    //paginas que se van a mostrar en el bloque actual
-    const pagesInBlock = []
-    const minPage = (actualBlock - 1) * PAGES_PER_BLOCK + 1
-    const maxPage = actualBlock * PAGES_PER_BLOCK
-    for(let i = minPage; i <= maxPage; i++){
-      if(i <= lastPage){
-        pagesInBlock.push(i)
-      }
-    }
-
-    return {pokemonInPage, lastPage, pagesInBlock}
-  }
-
-   const {lastPage, pagesInBlock, pokemonInPage} = paginationLogic()
+   const {lastPage, pagesInBlock, pokemonInPage} = useMemo(() => paginationLogic(currentPage, pokemonsByName), [currentPage, pokemons, pokemonName, currentType])
 
    const handleClickPreviusPage = () => {
     const newCurrentPage = currentPage - 1
