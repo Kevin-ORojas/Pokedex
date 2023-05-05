@@ -135,7 +135,7 @@ const Pokedex = () => {
 
           {/* lista de paginas */}
             {
-              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer ${numberPage === currentPage ? "bg-red-300" : "bg-red-500"}`} key={numberPage}>{numberPage}</li>)
+              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer ${numberPage === currentPage ? "bg-gray-300" : "bg-red-500"}`} key={numberPage}>{numberPage}</li>)
             }
 
             {/* Pagina siguiente */}
@@ -159,7 +159,7 @@ const Pokedex = () => {
 
           {/* lista de paginas */}
             {
-              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer ${numberPage === currentPage ? "bg-red-300" : "bg-red-500"}`} key={numberPage}>{numberPage}</li>)
+              pagesInBlock.map(numberPage => <li onClick={() => setCurrentPage(numberPage)} className={`p-3 bg-red-600 font-bold text-white rounded-md hover:animate-ping cursor-pointer ${numberPage === currentPage ? "bg-gray-300" : "bg-red-500"}`} key={numberPage}>{numberPage}</li>)
             }
 
             {/* Pagina siguiente */}
