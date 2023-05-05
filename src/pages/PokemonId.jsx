@@ -50,46 +50,25 @@ const PokemonId = () => {
     fairy:"bg-gradient-to-b from-violet-800 to-sky-500/10"
     };
   
-  const nameColorByType = {
-    grass: "text-green-800",
-    fire: "text-red-800",
-    water: "text-blue-800",
-    bug: "text-green-800",
-    normal: "text-stone-800",
-    fighting: "text-violet-800",
-    poison: "text-green-800",
-    flying: "text-cyan-800",
-    ground:"text-yellow-800",
-    rock:"text-violet-800",
-    ghost:"text-orange-800",
-    electric:"text-red-800",
-    steel:"text-yellow-800",
-    psychic:"text-violet-800",
-    ice:"text-blue-800",
-    dragon:"text-indigo-800",
-    dark:"text-green-800",
-    fairy:"text-red-800"
-    
-  }
-  
+ 
   const SkillColorByType = {
-    grass: "text-green-600",
-    fire: "text-red-800",
-    water: "text-blue-800",
-    bug: "text-green-800",
-    normal: "text-stone-800",
-    fighting: "text-violet-800",
-    poison: "text-green-800",
-    flying: "text-cyan-800",
-    ground:"text-yellow-800",
-    rock:"text-violet-800",
-    ghost:"text-orange-800",
-    electric:"text-red-800",
-    steel:"text-yellow-800",
-    psychic:"text-violet-800",
-    ice:"text-blue-800",
-    dragon:"text-sky-800",
-    dark:"text-green-800",
+    grass: "text-green-400",
+    fire: "text-red-400",
+    water: "text-blue-400",
+    bug: "text-green-400",
+    normal: "text-stone-400",
+    fighting: "text-violet-400",
+    poison: "text-green-400",
+    flying: "text-cyan-400",
+    ground:"text-yellow-400",
+    rock:"text-violet-400",
+    ghost:"text-orange-400",
+    electric:"text-stone-800",
+    steel:"text-yellow-400",
+    psychic:"text-violet-400",
+    ice:"text-blue-400",
+    dragon:"text-sky-400",
+    dark:"text-green-400",
     fairy:"text-red-600"
   }
   

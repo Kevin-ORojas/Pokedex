@@ -44,47 +44,46 @@ const backgroundByType = {
   fairy:"bg-gradient-to-b from-violet-800 to-sky-500/10"
   };
 
-const nameColorByType = {
-  grass: "text-green-700",
-  fire: "text-red-800",
-  water: "text-blue-800",
-  bug: "text-green-800",
-  normal: "text-stone-800",
-  fighting: "text-violet-800",
-  poison: "text-green-800",
-  flying: "text-cyan-800",
-  ground:"text-yellow-800",
-  rock:"text-violet-800",
-  ghost:"text-orange-800",
-  electric:"text-red-800",
-  steel:"text-yellow-800",
-  psychic:"text-violet-800",
-  ice:"text-blue-800",
-  dragon:"text-indigo-800",
-  dark:"text-green-800",
-  fairy:"text-red-800"
-  
-}
+  const nameColorByType = {
+    grass: "text-green-900",
+    fire: "text-red-900",
+    water: "text-blue-900",
+    bug: "text-green-900",
+    normal: "text-stone-900",
+    fighting: "text-violet-900",
+    poison: "text-green-900",
+    flying: "text-cyan-900",
+    ground:"text-yellow-900",
+    rock:"text-violet-900",
+    ghost:"text-orange-900",
+    electric:"text-red-800",
+    steel:"text-yellow-800",
+    psychic:"text-violet-800",
+    ice:"text-blue-800",
+    dragon:"text-indigo-800",
+    dark:"text-green-800",
+    fairy:"text-red-800"
+  }
 
 const SkillColorByType = {
-  grass: "text-green-700",
-  fire: "text-red-800",
-  water: "text-blue-800",
-  bug: "text-green-800",
-  normal: "text-stone-800",
-  fighting: "text-violet-800",
-  poison: "text-green-800",
-  flying: "text-cyan-800",
-  ground:"text-yellow-800",
-  rock:"text-violet-800",
-  ghost:"text-orange-800",
-  electric:"text-red-800",
-  steel:"text-yellow-800",
-  psychic:"text-violet-800",
-  ice:"text-blue-800",
-  dragon:"text-sky-800",
-  dark:"text-green-800",
-  fairy:"text-red-800"
+  grass: "text-green-900",
+  fire: "text-red-900",
+  water: "text-blue-900",
+  bug: "text-green-900",
+  normal: "text-stone-900",
+  fighting: "text-violet-900",
+  poison: "text-green-900",
+  flying: "text-cyan-900",
+  ground:"text-yellow-900",
+  rock:"text-violet-900",
+  ghost:"text-orange-900",
+  electric:"text-red-900",
+  steel:"text-yellow-900",
+  psychic:"text-violet-900",
+  ice:"text-blue-900",
+  dragon:"text-sky-900",
+  dark:"text-green-900",
+  fairy:"text-red-600"
 }
 
 const PokemonCard = ({ pokemonUrl }) => {
