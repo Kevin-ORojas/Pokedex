@@ -20,7 +20,7 @@ const Home = () => {
       <section>
         <article className="grid justify-center">
           <div >
-            <img className="hover:animate-pulse du" src="/images/pokedex.svg" alt="" />
+            <img className="hover:animate-pulse" src="/images/pokedex.svg" alt="" />
           </div>
           <h2 className="font-bold text-center text-red-500 text-2xl ">Hello Trainer¡</h2>
           <p className="text-black font-bold text-center text-xl ">Give me your name to start!</p>
